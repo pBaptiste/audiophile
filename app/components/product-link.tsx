@@ -22,7 +22,7 @@ const ProductLink = ({ imgSrc, imgAlt, imgWidth, imgHeight, productName, product
                     height={imgHeight} />
             </div>
 
-            <h4 className='font-bold text-black text-[0.938rem] leading-5 tracking-[1.07143px] text-center uppercase'>{productName}</h4>
+            <h1 className='font-bold text-black text-[0.938rem] leading-5 tracking-[1.07143px] text-center uppercase'>{productName}</h1>
             <Link href={productLink} className='flex gap-[13.32px] items-center font-bold text-[0.813rem] leading-[1.125rem] tracking-[1px] uppercase text-black text-opacity-50 hover:text-custom-orange transition duration-200'>
                 Shop
                 <div>
