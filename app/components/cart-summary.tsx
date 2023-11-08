@@ -19,12 +19,11 @@ const CartSummary = ({ grandTotal, setGrandTotal }: Props) => {
     })
 
     return (
-        <div className='xl:flex-1 xl:basis-[350px] xl:h-fit bg-white rounded-lg flex flex-col gap-8 pt-6 md:pt-[27px] lg:pt-[54px] px-6 pr-7 md:px-[30px] xl:px-12 pb-[31px] xl:pb-12 text-black xl:max-h-[620px]'>
+        <div className='xl:flex-1 xl:basis-[350px] xl:h-fit bg-white rounded-lg flex flex-col gap-8 pt-6 md:pt-[27px] lg:pt-[54px] px-6 pr-7 md:px-[30px] xl:px-12 pb-[31px] xl:pb-12 text-black xl:max-h-[1126px] overflow-scroll'>
             <h1 className='font-bold text-[1.125rem] leading-[1.563rem] tracking-[1.28571px] uppercase'>Summary</h1>
 
-            <div className='flex flex-col gap-6 overflow-scroll'>
-                {/* <SummaryItem image='/assets/cart/image-xx99-mark-two-headphones.jpg' name='XX99 MK II' price={2999} amount={1} />
-                <SummaryItem image='/assets/cart/image-xx99-mark-two-headphones.jpg' name='XX99 MK II' price={2999} amount={2} /> */}
+            <div className='flex flex-col gap-6'>
+
                 {cartList.map(item => (
                     <SummaryItem key={item.id} image={item.image} name={item.name} price={item.price} amount={item.quantity} />
                 ))}
@@ -53,7 +52,7 @@ const CartSummary = ({ grandTotal, setGrandTotal }: Props) => {
                 </div>
             </div>
 
-            <BtnCustom type='submit' name='Continue & Pay' />
+            <BtnCustom type='submit' name='Continue & Pay' disabled={totalCost == 0 ? true : false} />
 
         </div>
     )

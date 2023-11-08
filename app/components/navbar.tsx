@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Cart from './cart'
 import MobileNav from './mobile-nav'
+import { AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
     const [isCartOpen, setIsCartOpen] = useState(false)
@@ -20,7 +21,7 @@ const Navbar = () => {
     }
 
     return (
-        <header className='relative bg-[#191919] text-white md:px-10 xl:px-[165px]'>
+        <header className='bg-[#191919] text-white md:px-10 xl:px-[165px]'>
             <nav className='px-6 md:px-0 py-8 xl:pb-9 flex items-center xl:justify-between'>
 
                 {/* mobile menu hamburger */}
@@ -83,9 +84,15 @@ const Navbar = () => {
             </nav>
 
             {/* Dynamically Rendered Menu Components */}
-            {isMenuOpen && <MobileNav setIsMenuOpen={setIsMenuOpen} />}
+            <AnimatePresence>
+                {isMenuOpen && <MobileNav setIsMenuOpen={setIsMenuOpen} />}
+            </AnimatePresence>
 
-            {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}
+
+            <AnimatePresence>
+                {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}
+            </AnimatePresence>
+
         </header>
     )
 }

@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useContext } from 'react'
 import { DataContext } from '../context/data-provider'
 import BtnLink from './btn-link'
 import CartItem from './cart-item'
+import { motion } from 'framer-motion'
 
 type Props = {
     setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -49,7 +50,12 @@ const Cart = ({ setIsCartOpen }: Props) => {
     })
     return (
         <div className='absolute z-40 bg-black bg-opacity-50 flex items-center justify-center md:justify-end md:pr-10 top-0 left-0 w-full h-screen overflow-hidden'>
-            <div ref={cartRef} className='flex flex-col justify-between w-[327px] md:w-[377px] h-[488px] bg-white rounded-lg px-7 py-8'>
+            <motion.div
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.25 }}
+                exit={{ y: -100, opacity: 0 }}
+                ref={cartRef} className='flex flex-col justify-between w-[327px] md:w-[377px] h-[488px] bg-white rounded-lg px-7 py-8'>
 
                 <div className='flex justify-between items-center'>
                     <h2 className='font-bold text-black text-[1.125rem] leading-[1.563rem] tracking-[1.28571px] uppercase'>Cart{`(${cartList.length})`}</h2>
@@ -71,9 +77,9 @@ const Cart = ({ setIsCartOpen }: Props) => {
                     </div>
 
                     {/* <BtnCustom className='w-full' handleClick={handleClick} name='Checkout'/> */}
-                    <BtnLink handleClick={handleCheckOut} className='w-full text-center bg-custom-orange hover:bg-custom-light-orange' link='/checkout' name='Checkout' />
+                    <BtnLink handleClick={handleCheckOut} className='w-full text-center bg-custom-orange hover:bg-custom-light-orange' link='/checkout' name='Checkout' disabled={totalCost == 0 ? true : false} />
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

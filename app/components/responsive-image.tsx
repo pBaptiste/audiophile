@@ -8,9 +8,11 @@ type Props = {
     lg: string,
     alt: string
     className?: string
+    sizes?: string
+    priority?: boolean
 }
 
-const ResponsiveImage = ({ sm, md, lg, alt, className }: Props) => {
+const ResponsiveImage = ({ sm, md, lg, alt, className, sizes, priority }: Props) => {
     const [src, setSrc] = useState(sm)
 
     useEffect(() => {
@@ -42,7 +44,7 @@ const ResponsiveImage = ({ sm, md, lg, alt, className }: Props) => {
     },)
 
     return (
-        <Image src={src} alt={alt} fill className={`${className} object-cover`} />
+        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={`${className} object-cover`} />
     )
 }
 

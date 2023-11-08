@@ -20,6 +20,7 @@ export default function Home() {
               md='/assets/home/tablet/image-header.jpg'
               lg='/assets/home/desktop/image-hero.jpg'
               alt='Banner Image'
+              priority={true}
             />
           </div>
         </div>

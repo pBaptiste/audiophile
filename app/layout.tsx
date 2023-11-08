@@ -21,10 +21,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.className}>
         <DataProvider>
-          <Navbar />
-          {children}
+          <div className='relative'>
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </DataProvider>
-        <Footer />
+
       </body>
     </html>
   )

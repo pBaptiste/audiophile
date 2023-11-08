@@ -13,7 +13,8 @@ const Trending = () => {
                         sm='/assets/home/mobile/image-speaker-zx9.png'
                         md='/assets/home/tablet/image-speaker-zx9.png'
                         lg='/assets/home/desktop/image-speaker-zx9.png'
-                        alt='speaker image' />
+                        alt='speaker image'
+                        sizes="33vw" />
                 </div>
 
                 <div className='absolute w-[558px] md:w-[944px] h-[558px] md:h-[944px] top-[-120px] md:top-[-305px] xl:top-[-50px] left-[50%] translate-x-[-50%] xl:left-[-135px] xl:translate-x-0 z-10'>

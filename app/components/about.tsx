@@ -11,6 +11,7 @@ const About = () => {
                     lg='/assets/shared/desktop/image-best-gear.jpg'
                     alt='about section image'
                     className='rounded-xl'
+                    sizes="(max-width: 768px) 100vw, 33vw"
                 />
             </div>
             <div className='flex flex-col xl:justify-center xl:pr-[120px] text-center xl:text-start xl:basis-1/2 text-black'>
