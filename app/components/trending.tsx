@@ -25,14 +25,14 @@ const Trending = () => {
                 </div>
 
                 <div className='flex flex-col items-center xl:items-start text-center xl:text-start'>
-                    <h4 className='font-bold text-4xl md:text-[3.5rem] leading-10 md:leading-[3.625rem] tracking-[1.28571px] uppercase mb-6 px-4 md:px-0 md:w-[261px]'>ZX9 SPEAKER</h4>
+                    <h1 className='font-bold text-4xl md:text-[3.5rem] leading-10 md:leading-[3.625rem] tracking-[1.28571px] uppercase mb-6 px-4 md:px-0 md:w-[261px]'>ZX9 SPEAKER</h1>
                     <p className='font-medium text-[0.938rem] leading-[1.563rem] opacity-75 mb-6 max-w-[280px] md:max-w-[349px]'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
                     <BtnLink className='relative z-20 bg-black hover:bg-[#4C4C4C]' name='See Product' link='/productdetail/zx9-speaker' />
                 </div>
             </div>
 
             <div className='md:col-span-2 relative py-[101px] px-6 md:px-[62px] rounded-lg bg-custom-light-grey bg-zx7Mobile bg-center md:bg-zx7Tablet xl:bg-zx7Desktop bg-no-repeat bg-cover'>
-                <h4 className='font-bold text-[1.75rem] leading-[2.375rem] tracking-[2px] uppercase text-black mb-8'>ZX7 SPEAKER</h4>
+                <h1 className='font-bold text-[1.75rem] leading-[2.375rem] tracking-[2px] uppercase text-black mb-8'>ZX7 SPEAKER</h1>
                 <BtnLink className='border border-black text-black hover:bg-black hover:text-white' name='See Product' link='/productdetail/zx7-speaker' />
             </div>
 
@@ -40,7 +40,7 @@ const Trending = () => {
             </div>
 
             <div className="md:col-span-1 md:h-[320px] bg-custom-grey py-[41px] md:py-[101px] px-6 md:px-[41px] rounded-lg">
-                <h4 className='font-bold text-[1.75rem] leading-[2.375rem] tracking-[2px] uppercase text-black mb-8'>YX1 EARPHONES</h4>
+                <h1 className='font-bold text-[1.75rem] leading-[2.375rem] tracking-[2px] uppercase text-black mb-8'>YX1 EARPHONES</h1>
                 <BtnLink className='border border-black text-black hover:bg-black hover:text-white' name='See Product' link='/productdetail/yx1-earphones' />
             </div>
 

@@ -6,12 +6,13 @@ import ProductLinks from '@/app/components/product-links'
 import About from '@/app/components/about'
 import { Product } from '@/types/types'
 
+const useData = () => {
+  return useContext(DataContext);
+}
 
 const Category = ({ params }: { params: { category: string } }) => {
-  const { productList } = useContext(DataContext)
+  const { productList } = useData()
   const categoryList = productList.filter((item: Product) => item.category === params.category)
-  // Reverse the categoryList array
-  const reversedCategoryList = [...categoryList].reverse();
 
   return (
     <main className='bg-[#FAFAFA]'>
@@ -22,7 +23,7 @@ const Category = ({ params }: { params: { category: string } }) => {
 
       <section className="pt-[120px] md:pt-[160px] pb-[120px] md:pb-[160px] md:py-24 px-6 md:px-10 xl:px-[165px] flex flex-col items-center gap-[120px] xl:gap-[160px] ">
         <div className='flex flex-col gap-[120px] md:gap-24 xl:gap-[168px] w-[327px] md:w-[689px] xl:w-[1110px]'>
-          {reversedCategoryList.map((product, index) => (
+          {categoryList.reverse().map((product, index) => (
             <ProductInfo
               index={index}
               newProduct={product.new}

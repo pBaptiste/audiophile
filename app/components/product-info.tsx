@@ -25,6 +25,7 @@ const ProductInfo = ({ index, newProduct, title, desc, link, images }: Props) =>
                     lg={images.desktop}
                     alt='product image'
                     className='rounded-xl'
+                    priority={true}
                 />
             </div>
             <div className={`flex flex-col items-center xl:items-start text-center xl:text-start max-w-[327px] md:max-w-[572px] xl:max-w-[445px] ${index % 2 === 0 && 'xl:order-1'}`}>

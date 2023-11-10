@@ -3,14 +3,21 @@ import React, { useState, useContext } from 'react'
 import { DataContext } from '../context/data-provider'
 import Image from 'next/image'
 import Link from 'next/link'
-import Cart from './cart'
-import MobileNav from './mobile-nav'
+const Cart = React.lazy(() => import('./cart'));
+const MobileNav = React.lazy(() => import('./mobile-nav'));
 import { AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
     const [isCartOpen, setIsCartOpen] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const { cartList } = useContext(DataContext)
+
+    const navigationLinks = [
+        { label: 'Home', href: '/' },
+        { label: 'Headphones', href: '/category/headphones' },
+        { label: 'Speakers', href: '/category/speakers' },
+        { label: 'Earphones', href: '/category/earphones' },
+    ];
 
     const handleCart = () => {
         setIsCartOpen((prevCart) => !prevCart)
@@ -30,7 +37,7 @@ const Navbar = () => {
                         onClick={handleMenu}>
                         <Image
                             src='/assets/shared/tablet/icon-hamburger.svg'
-                            alt='Mobile Menu Icon'
+                            alt='Mobile Menu Icon - Open Menu'
                             width={16}
                             height={15} />
                     </button>
@@ -49,18 +56,11 @@ const Navbar = () => {
 
                 {/* Desktop Navigation List */}
                 <ul className='hidden xl:flex gap-[34px]'>
-                    <li className='font-bold text-[0.813rem] leading-[1.563rem] tracking-[2px] uppercase hover:text-custom-orange transition duration-200'>
-                        <Link href='/'>Home</Link>
-                    </li>
-                    <li className='font-bold text-[0.813rem] leading-[1.563rem] tracking-[2px] uppercase hover:text-custom-orange transition duration-200'>
-                        <Link href='/category/headphones'>Headphones</Link>
-                    </li>
-                    <li className='font-bold text-[0.813rem] leading-[1.563rem] tracking-[2px] uppercase hover:text-custom-orange transition duration-200'>
-                        <Link href='/category/speakers'>Speakers</Link>
-                    </li>
-                    <li className='font-bold text-[0.813rem] leading-[1.563rem] tracking-[2px] uppercase hover:text-custom-orange transition duration-200'>
-                        <Link href='/category/earphones'>Earphones</Link>
-                    </li>
+                    {navigationLinks.map((link, index) => (
+                        <li className='font-bold text-[0.813rem] leading-[1.563rem] tracking-[2px] uppercase hover:text-custom-orange transition duration-200' key={index}>
+                            <Link href={`${link.href}`}>{link.label}</Link>
+                        </li>
+                    ))}
                 </ul>
 
                 {/* Shopping Cart Menu Icon */}
@@ -84,13 +84,23 @@ const Navbar = () => {
             </nav>
 
             {/* Dynamically Rendered Menu Components */}
-            <AnimatePresence>
-                {isMenuOpen && <MobileNav setIsMenuOpen={setIsMenuOpen} />}
+            <AnimatePresence initial={false}>
+                {isMenuOpen && (
+                    <React.Suspense>
+                        <MobileNav setIsMenuOpen={setIsMenuOpen} />
+                    </React.Suspense>
+                )}
+
             </AnimatePresence>
 
 
-            <AnimatePresence>
-                {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}
+            <AnimatePresence initial={false}>
+                {isCartOpen && (
+                    <React.Suspense>
+                        <Cart setIsCartOpen={setIsCartOpen} />
+                    </React.Suspense>
+                )}
+
             </AnimatePresence>
 
         </header>

@@ -54,12 +54,13 @@ const ProductDetails = ({ newProduct, title, desc, image, price }: Props) => {
                     lg={image.desktop}
                     alt='product image'
                     className='rounded-lg'
+                    priority={true}
                 />
             </div>
 
             <div className='md:w-[340px] xl:w-[445px]'>
-                {newProduct && <h2 className="text-normal text-custom-orange text-[0.875rem] md:text-xs xl:text-[0.875rem] leading-[1.188rem] xl:leading-[1.188rem] md:leading-4 tracking-[10px] xl:tracking-[10px] md:tracking-[8.57143px] mb-6 md:mb-4">NEW PRODUCT</h2>}
-                <h4 className='font-bold text-[1.75rem] xl:text-[2.5rem] leading-[2.375rem] md:leading-[2rem] xl:leading-[2.75rem] tracking-[1px] xl:tracking-[1.42857px] uppercase mb-6 md:mb-8'>{title}</h4>
+                {newProduct && <h1 className="text-normal text-custom-orange text-[0.875rem] md:text-xs xl:text-[0.875rem] leading-[1.188rem] xl:leading-[1.188rem] md:leading-4 tracking-[10px] xl:tracking-[10px] md:tracking-[8.57143px] mb-6 md:mb-4">NEW PRODUCT</h1>}
+                <h1 className='font-bold text-[1.75rem] xl:text-[2.5rem] leading-[2.375rem] md:leading-[2rem] xl:leading-[2.75rem] tracking-[1px] xl:tracking-[1.42857px] uppercase mb-6 md:mb-8'>{title}</h1>
                 <p className='font-medium text-[0.938rem] leading-[1.563rem] opacity-50 mb-6 md:mb-8'>{desc}</p>
                 <p className='font-bold text-[1.125rem] leading-[1.563rem] tracking-[1.28571px] uppercase mb-8 xl:mb-[47px]'>$ {price.toLocaleString()}</p>
                 <div className='flex gap-4'>
